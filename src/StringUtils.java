@@ -12,12 +12,19 @@ public class StringUtils {
             Ex: firstName = "Sean", lastName = "Flannery"
                     --> res = "SFlannery"
          */
+        firstName = firstName.toLowerCase();
+        lastName = lastName.toLowerCase();
         String res = firstName.substring(0,1) + lastName;
         /* Shorten the string to 8 characters
             Ex: res = "SFlannery"
                     --> res = "SFlanner"
          */
-        res.substring(0, 8);
+        if(res.length() < 8) {
+            res.substring(0, res.length() - 1);
+        }
+        else {
+            res.substring(0, 8);
+        }
         /* Convert the name to lower-case
             Ex: res = "SFlanner"
                     --> res = "sflanner"
@@ -34,8 +41,9 @@ public class StringUtils {
      * Ex: text = "jframes was among the students whose SSNs were leaked.",
      * username = "[DATA EXPUNGED] was among the students whose SSNs were leaked.",
      */
-    public static String replaceStudentUsername(String text, String username) {
+    public static String replaceStudentUsername(String text, String username) {     //replaces username with given text
         /* Replace every instance of the username with proper message */
-        return text.replaceAll(username, "[DATA EXPUNDGED]");
+        return text.replaceAll(username, "[DATA EXPUNGED]"); //"[DATA EXPUNDGED]"
     }
 }
+
